@@ -22,7 +22,7 @@
   <div class="col-md-3 top-leave-type-statistics">
     <dl>
       {{#with current_user }}
-      <dt data-tom-days-available-in-allowance>{{ ../user_allowance.number_of_days_available_in_allowance }}</dt>
+      <dt data-tom-days-available-in-allowance>{{ ../user_allowance.days_available_in_allowance }}</dt>
       <dd>Days available</dd>
       <dd>out of <span data-tom-total-days-in-allowance>{{ ../user_allowance.total_number_of_days_in_allowance }}</span> in allowance</dd>
       {{/with}}
@@ -58,7 +58,6 @@
       </dd>
       {{~/ each ~}}
       <dd><em>Department:</em> <span class="pull-right"><a href="/calendar/teamview/?department={{ current_user.department.id }}">{{ current_user.department.name }}</a></span></dd>
-      <dd><em>Allowance in {{current_year}}:</em><span class="pull-right"> {{ user_allowance.total_number_of_days_in_allowance }} days</span><dd>
     </dl>
   </div>
 

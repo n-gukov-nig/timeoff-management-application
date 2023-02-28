@@ -41,7 +41,7 @@
 
   <div class="form-group">
     <label class="control-label">Days available for {{ employee.name }} to take this year</label>
-    <p>{{ user_allowance.number_of_days_available_in_allowance }} out of {{ user_allowance.total_number_of_days_in_allowance }} in allowance</p>
+    <p>{{ user_allowance.number_of_days_available_in_allowance }} out of {{ user_allowance.days_in_allowance }} in allowance</p>
     <input id="days_remaining_inp" type="hidden" value="{{ user_allowance.number_of_days_available_in_allowance }} out of {{ user_allowance.total_number_of_days_in_allowance }}">
   </div>
 
@@ -72,7 +72,7 @@
     </div>
   </div>
 
-  <div class="form-group">
+  {{!-- <div class="form-group">
     <label for="carried_over_allowance_inp" class="control-label">Allowance carried over from previous year</label>
     <div class="input-group col-md-4">
       <input class="form-control" readonly id="carried_over_allowance_inp" type="number" step="0.5" name="carried_over_allowance" value="{{#if carried_over_allowance }}{{carried_over_allowance}}{{else}}0{{/if}}" aria-describedby="carried_over_allowance_help">
@@ -82,8 +82,8 @@
       <div>Allowance adjustment based on unused holidays from previous year.</div>
       <div>It is calculated at the beginning of current year.</div>
     </div>
-  </div>
-
+  </div> --}}
+{{!-- 
   <div class="form-group">
     <label for="adjustment_inp" class="control-label">Allowance adjustment in current year</label>
     <div class="input-group col-md-4">
@@ -95,7 +95,7 @@
       <div>Could be negative as well.</div>
       <div>The value is valid during current year. Next year it needs to be re-confirmed.</div>
     </div>
-  </div>
+  </div> --}}
 
   <div class="form-group">
     <div class="col-md-12">
