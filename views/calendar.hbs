@@ -1,19 +1,19 @@
 
 {{> header }}
 
-<h1>Employee calendar</h1>
+{{!-- <h1>Employee calendar</h1>
 
 <div class="row">
     <div class="col-md-6 lead">{{logged_user.name}} {{logged_user.lastname}}'s calendar for {{current_year}}</div>
     <div class="col-md-6">
     </div>
-</div>
+</div> --}}
 
 {{> show_flash_messages }}
 
-<div class="row">&nbsp;</div>
+{{!-- <div class="row">&nbsp;</div> --}}
 
-<div class="row main-row_header hidden-xs">
+{{!-- <div class="row main-row_header hidden-xs">
   <div class="col-md-12">Statistics</div>
 </div>
 
@@ -65,8 +65,53 @@
 </div>
 
 <div class="row">
+</div> --}}
+
+<div class="row main-row_header hidden-xs">
+  <div class="col">Vacation</div>
 </div>
 
+<div class="vacation">
+  
+  <div class="col-md-3 secondary-leave-type-statistics hidden-xs">
+    <dl>
+      <dt>Statistics</dt>
+      <dd><em>Used:</em> 
+      <span class="pull-right"><b>{{vacation.used}}</b> days</span>
+      </dd>
+        <dd><em>Total:</em> 
+      <span class="pull-right"><b>{{vacation.totalInt}}</b> days</span>
+      </dd>
+{{!-- 
+      {{# if leave_type_statistics }}
+        {{# each leave_type_statistics }}
+          <dd><em>{{this.leave_type.name}}:</em> <span class="pull-right">{{this.days_taken}}{{# if this.limit}} out of {{this.limit}}{{/if}}</span></dd>
+        {{/each}} --}}
+
+      {{!-- <dd><em>Allowance in {{current_year}}:</em><span class="pull-right"> {{ user_allowance.total_number_of_days_in_allowance }} days</span><dd> --}}
+    </dl>
+  </div>
+
+  <div class="vacation__avaliable">
+    Available
+    <h3>{{vacation.availableInt}}</h3>
+    days
+  </div>
+
+   <div class="col-md-3 secondary-leave-type-statistics hidden-xs">
+    <dl>
+      <dt>Details</dt>
+      {{~# each supervisors  ~}}
+      <dd>
+        <em>{{# if  @first }} Supervisor: {{ else   }}  &nbsp;   {{/ if  }}</em>
+        <span class="pull-right"><a href="mailto:{{this.email}}">{{ this.full_name }}</a></span>
+      </dd>
+      {{~/ each ~}}
+      <dd><em>Department:</em> <span class="pull-right"><a href="/calendar/teamview/?department={{ current_user.department.id }}">{{ current_user.department.name }}</a></span></dd>
+      {{!-- <dd><em>Allowance in {{current_year}}:</em><span class="pull-right"> {{ user_allowance.total_number_of_days_in_allowance }} days</span><dd> --}}
+    </dl>
+  </div>
+</div>
 
 <div class="row main-row_header">
   <div class="col-md-12">Calendar <a href="/calendar/feeds/" data-toggle="tooltip" data-placement="right" title="Export absences  to external calendars"><span class="fa fa-rss"></span></a></div>
